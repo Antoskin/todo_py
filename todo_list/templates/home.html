@@ -4,5 +4,28 @@
 
 {% block content %}
     <h1>home page</h1>
-    <h2>some content...</h2>
+
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if all_items %}
+            {% for item in all_items %}
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{ item.name }}</td>
+                    <td>-</td>
+                    <td>{{ item.checked }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+
 {% endblock %}

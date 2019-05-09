@@ -1,3 +1,7 @@
 body {
     background: #563d7c !important;
 }
+
+.form1 {
+    display: flex;
+}

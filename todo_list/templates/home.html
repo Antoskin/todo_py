@@ -4,6 +4,15 @@
 
 {% block content %}
     <h1>home page</h1>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-primary" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+    {% endif %}
 
     <table class="table table-dark">
         <thead>
@@ -20,8 +29,8 @@
                 <tr>
                     <th scope="row">1</th>
                     <td>{{ item.name }}</td>
-                    <td>-</td>
-                    <td>{{ item.checked }}</td>
+                    <td><a href="{% url 'delete' item.id %}">-</a></td>
+                    <td><a href="{% url 'switch_off' item.id %}">{{ item.checked }}</a></td>
                 </tr>
             {% endfor %}
         {% endif %}

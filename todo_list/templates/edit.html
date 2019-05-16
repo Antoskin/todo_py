@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} home | edit {% endblock %}
+
+
+{% block content %}
+    {% if item %}
+        {{ item.name }}
+        <form class="form1" method="POST">
+            {% csrf_token %}
+            <input type="search" name="name" value="{{ item.name }}">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    {% endif %}
+{% endblock %}

@@ -28,7 +28,7 @@
             {% for item in all_items %}
                 <tr>
                     <th scope="row">1</th>
-                    <td>{{ item.name }}</td>
+                    <td><a href="{% url 'edit' item.id %}">{{ item.name }}</a></td>
                     <td><a href="{% url 'delete' item.id %}">-</a></td>
                     <td><a href="{% url 'switch_off' item.id %}">{{ item.checked }}</a></td>
                 </tr>

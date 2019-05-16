@@ -40,3 +40,18 @@ def switch_off(req, list_id):
     item.save()
     return redirect('home')
 
+def edit(req, list_id):
+    if req.method == 'POST':
+        item = List.objects.get(pk=list_id)
+
+        form = ListForm(req.POST or None, instance=item)
+
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    else:
+        item = List.objects.get(pk=list_id)
+        return render(req, 'edit.html', {'item': item})
+
+
